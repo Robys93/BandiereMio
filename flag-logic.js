@@ -14,14 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitAnswerBtn = document.getElementById('submit-answer');
     const nextBtn = document.getElementById('next-btn');
     const resultText = document.getElementById('result');
+    const themeSelect = document.getElementById('theme');
+
 
     // Suoni
     const correctSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3');
     const wrongSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3');
 
     // Inizializzazione
-    fetchCountries();
-    setupEventListeners();
+    async function init() {
+        await fetchCountries();
+        setupEventListeners();
+        changeTheme(); // Applica il tema iniziale
+    }
+    init();
 
     async function fetchCountries() {
         try {
@@ -35,7 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function changeTheme() {
+        const theme = themeSelect.value;
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+
     function setupEventListeners() {
+        themeSelect.addEventListener('change', changeTheme);
         submitAnswerBtn.addEventListener('click', handleOpenAnswer);
         openAnswerInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !answerSubmitted) {

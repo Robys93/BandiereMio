@@ -86,7 +86,7 @@ body {
     }
 }
 
-/* Tema Scuro */
+/* Temi */
 [data-theme="dark"] {
     --bg-color: #222;
     --text-color: #eee;
@@ -95,7 +95,6 @@ body {
     --card-bg: #333;
 }
 
-/* Tema Natura */
 [data-theme="nature"] {
     --bg-color: #e8f5e9;
     --text-color: #2e7d32;
@@ -104,7 +103,6 @@ body {
     --card-bg: #c8e6c9;
 }
 
-/* Tema Oceano */
 [data-theme="ocean"] {
     --bg-color: #e3f2fd;
     --text-color: #0d47a1;
